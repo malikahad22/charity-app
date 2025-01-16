@@ -1,38 +1,34 @@
 import React from 'react'
 import Logo from "../../assets/svg/logo.svg";
-import { Link } from 'react-router-dom';
+import Tabs from '../../ui-components/navbar/Tabs.js';
 
 const Page = () => {
 
    const navItems = [{
-      name: "Home",
+      title: "Home",
       link: "/"
    }, {
-      name: "Causes",
+      title: "Causes",
       link: "/causes",
    }, {
-      name: "Events",
+      title: "Events",
       link: "/events"
    }, {
-      name: "Contact",
+      title: "Contact",
       link: "/contact"
    }, {
-      name: "Blogs",
+      title: "Blogs",
       link: "/blogs"
    }
    ];
 
    return (
-      <div className='px-24 flex justify-between items-center'>
+      <div className=' px-32 flex justify-between items-center'>
          <div>
             <img className='w-[170px] h-[100px]' src={Logo} alt="endeavor" />
          </div>
          <div className='flex gap-7'>
-            {
-               navItems.map((item, index) => (
-                  <Link to={item.link} key={index}>{item.name}</Link>
-               ))
-            }
+            <Tabs propTabs={navItems} />
          </div>
       </div>
    )
